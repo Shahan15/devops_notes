@@ -82,8 +82,12 @@ We set up the Rules - i.e. Allow certain ports or such. and when traffic comes i
 
 ######
 
-Stick Sessions (Session Affinity)  - Ensures that all subsequent requests from a specific user during a session re consistently routed to the exact same backend server. Without these Load Balancers usually distribute traffic evenly - Like request #1 goes to Server A, #2 to Server B etc. 
-	 
+Stick Sessions (Session Affinity)  - Ensures that all subsequent requests from a specific user during a session re consistently routed to the exact same backend server.  
+Load Balancers usually distribute traffic evenly - Like request #1 goes to Server A, #2 to Server B etc. 
+	 So for a duration of a visit, Sticky sessions maps a specific user's browser to a specific server backend for duration of their visit.
+		 For example when you fill up your shopping cart on an e-commerce site you need the site to remember what was in your cart when you proceed to check out.
+	 So this is done via the ALB leaving a 'sticky marker' (usually HTTP cookie). So every action done by the user henceforth is handled by one specific server. 
+	 NLB's cannot read cookies (cant read HTTP headers) So it relies on ***Source IP Affinity***. It looks at your public IP address  and any traffic from that IP address is routed to Server A for example.
 
 
 

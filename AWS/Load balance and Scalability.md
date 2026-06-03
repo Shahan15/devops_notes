@@ -89,6 +89,13 @@ Load Balancers usually distribute traffic evenly - Like request #1 goes to Serve
 	 So this is done via the ALB leaving a 'sticky marker' (usually HTTP cookie). So every action done by the user henceforth is handled by one specific server. 
 	 NLB's cannot read cookies (cant read HTTP headers) So it relies on ***Source IP Affinity***. It looks at your public IP address  and any traffic from that IP address is routed to Server A for example.
 
+Sticky sessions have issues though - Scenario: 
+You have 3 servers and 3,000 users , in a perfect world, the load balancer gives 1,000 users to each server. 
 
+But users dont act identically. 
+
+so Server A might have 1,000 users who only visit the site and then leave. Server B might have heavy database queries or checkout processes. 
+
+But with 'Sticky Marker' tho
 
 

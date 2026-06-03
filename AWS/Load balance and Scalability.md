@@ -74,3 +74,17 @@ This NLB allows you to:
 How does it work with TCP based traffic?
 
 Recall: TCP (Transmission Control Protocol) - This is a protocol that includes a 'handshake' between devices. It establishes a connection between the devices before sending data. This ensures data is send in order and is actually received by the other end, good for security and data integrity
+
+We set up the Rules - i.e. Allow certain ports or such. and when traffic comes in the NLB directs it to the appropriate target group. 
+	 it doesn't inspect HTTP headers or handle SSL termination (decrypts HTTPS traffic) - this means that it cant route based on URL's like `/api or /login` 
+
+
+
+######
+
+Stick Sessions (Session Affinity)  - Ensures that all subsequent requests from a specific user during a session re consistently routed to the exact same backend server. Without these Load Balancers usually distribute traffic evenly - Like request #1 goes to Server A, #2 to Server B etc. 
+	 
+
+
+
+

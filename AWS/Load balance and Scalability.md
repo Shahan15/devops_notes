@@ -96,6 +96,6 @@ But users dont act identically.
 
 so Server A might have 1,000 users who only visit the site and then leave. Server B might have heavy database queries or checkout processes. 
 
-But with 'Sticky Marker' tho
+But with 'Sticky Marker' those users are stuck with server B. so Server A CPU usage will be 5% and Server B would be 100%. 
 
 

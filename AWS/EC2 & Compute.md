@@ -41,4 +41,3 @@ ECS - Elastic Container Service - Allows management of Containers and lets you s
 
 Lambda - Like Azure Functions. You can run code without worrying about infrastructure. usually for small pieces of codes or automation. AWS runs the code, scales and provides OS patches and such
 
-High Availability and

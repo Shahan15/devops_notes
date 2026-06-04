@@ -11,4 +11,6 @@ AWS API Gateway - Acts as a bridge between users and lambda functions
 Amazon S3 - Storage Service, Serverless
 
 AWS SNS & SQS - Simple Notification Server and Simple Queue Service
-	 
+
+
+![[Screenshot 2026-06-04 at 16.58.34.png]]![[Screenshot 2026-06-04 at 17.02.06.png]]![[Screenshot 2026-06-04 at 17.03.17.png]]

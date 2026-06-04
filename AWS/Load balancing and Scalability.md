@@ -97,5 +97,55 @@ But users dont act identically.
 so Server A might have 1,000 users who only visit the site and then leave. Server B might have heavy database queries or checkout processes. 
 
 But with 'Sticky Marker' those users are stuck with server B. so Server A CPU usage will be 5% and Server B would be 100%. 
+	 even with these issues, its common because of company legacy code. 
+
+#### SSL/TLS - Basics
+
+SSL - Secure Socket Layer 
+These ensure traffic between your client and servers (instances) are encrypted in transit. Prevents people from viewing the data as its travelling. 
+
+TLS - Transport Layer Security. This is a newer version. People refer to this as SSL still. 
 
 
+How do Load Balancer handle SSL Certificate?
+This is done by a ***X.509*** certificate - Fancy way of saying SSL/TSL Server Certificate.
+	You can manage these certificates using ACM (AWS Certificate Manager)
+Can upload your own certs too. 
+
+Flow goes as so: 
+![[Screenshot 2026-06-04 at 00.55.44.png]]
+
+
+**Server Name Indication (SNI)**
+Solves the problem of loading multiple SSL certificates onto on web server (to serve multiple websites)
+	 This is done via: when your client/browser first establishes a connection with the web server it sends the host name it is trying to reach as PART of the SSL Handshake. The Server then uses that hostname to find the SSL Cert for that website  - This only works with ALB, NLB and CloudFront. 
+
+**Elastic Load Balancers - SSL**
+![[Screenshot 2026-06-04 at 01.02.32.png]]
+
+**Connection Draining**
+Safety mechanism used by load balancers to gracefully take a backend server offline without dropping active users who are mid-request. 
+	 For instance if you need to update the software of an instance, or scaling group is shrinking. If any users were downloading a file or submitting a form then they would get a `502 Bad Gateway` or connection failed. 
+
+Instead the load balancer puts it into a 'Draining' state and kicks off a countdown timer (AWS its 5 mins)
+During this draining period, the load balancer enforces two strict rules:
+
+1. **No New Traffic:** It completely stops routing any _new_ incoming requests to that server. New users are sent to the remaining healthy servers.
+    
+2. **Grace Period for Existing Traffic:** It allows any users who were _already_ actively connected to that server to finish what they were doing.
+
+
+**Auto Scaling Groups** **(ASG)** 
+- Scale out (add's EC2 Instances) to match an *increased* load
+- Scale in (Remove EC2 Instances) to match *decreased* load
+
+how does AWS work with Load Balancers?
+![[Screenshot 2026-06-04 at 01.11.41.png]]
+
+ASG Attributes:
+![[Screenshot 2026-06-04 at 01.12.51.png]]
+
+
+**CloudWatch Alarms** - keep an eye on CPU usage or memory. AWS would, depending on alarm:
+- create scale-out policies (increase number of instances)
+- Create scale-in policies (decrease number of instances)

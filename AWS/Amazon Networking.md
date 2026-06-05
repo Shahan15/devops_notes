@@ -83,3 +83,6 @@ Network Access Control List ( NACL)
 This is like a firewall which control traffic from and to subnets.
 ![[Screenshot 2026-06-05 at 15.34.21.png]]
 
+Security Groups & NACLs 
+- SG's - Operate at the instance level, they control traffic from and to the instance.
+- NACL - they operate at the boundary of the subnet. 

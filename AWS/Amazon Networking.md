@@ -86,3 +86,28 @@ This is like a firewall which control traffic from and to subnets.
 Security Groups & NACLs 
 - SG's - Operate at the instance level, they control traffic from and to the instance.
 - NACL - they operate at the boundary of the subnet. 
+![[Screenshot 2026-06-05 at 16.09.54.png]]
+
+
+Incoming Request: 
+- NACL inbound Rules - Filters Traffic INTO the SUBNET
+- SG Inbound Rules - Filters Traffic INTO the SG
+	- By default outbound traffic is allowed by SG.
+	- However the NACL explicitly needs to allow outbound traffic from the Subnet. 
+
+##### VPC Peering
+allows you to route traffic between two Virtual Private Clouds (VPCs) privately.
+	 By default AWS VPC is like a private digital island. VPC-A cant talk to VPC-B. 
+
+This works by establishing a direct, horizontal bridge between the two networks using AWS's internal network. 
+Once connection is established: 
+- No public internet: Traffic stays entirely inside the private AWS global network. 
+- Private IP communication: A private container or EC2 instance in VPC-A can now talk to VPC-B using its internal private IP Address
+
+key rules:
+- No overlapping CIDRs
+	- If VPC-A uses the IP range `10.0.0.0/16` and VPC-B _also_ uses `10.0.0.0/16`, **you cannot peer them.** If a server tries to send a packet to `10.0.0.5`, the network won't know whether that server lives locally or in the peered VPC. Your IP ranges must be completely unique.
+- VPC paring is NOT transitive
+	- This means VPC-A is peered with VPC-B and VPC-B is peered with VPC-C. then VPC-A cannot talk to VPC-C.
+
+

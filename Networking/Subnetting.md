@@ -47,7 +47,7 @@ Only the last bit can change. The last bits remaining are the '***Host ID'***
 IP address has 32 switches (bits) inside it. 
 ![[Screenshot 2026-05-22 at 16.55.28.png]]
 
-so 8 x 4 = 32. 
+so 8 x 4 = 32.  (8 being each *bit*)
 
 the /26 just mean the first 26 bits are ***locked*** for the network ID.
 
@@ -57,6 +57,24 @@ so if we do we get $$2^6 = 64\text{ total combinations}$$
 so we have 64 total IP addresses we can assign. 
 
 192.168.1.0/26 
+
+
+**Example 2:**
+192.168.1.0/32 --> how many combinations does this have? 
+
+so 32/8 = 4 
+
+8 + 8 + 8 + 8 = 32. --> all switches filled. 
+$$2^0 = 1\text{ total combinations}$$
+
+
+**Example 3:**
+192.168.1.0/24 --> How many combinations?
+
+32-24 = 
+
+
+
 
 1) the Network Address is: `192.168.1.0`
 2) Broadcast Address: This is the absolute **last address**. If a device sends data to this specific number, the data is automatically broadcasted to _every_ device on the street at the same time.- `192.168.1.63`

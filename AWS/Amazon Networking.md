@@ -111,3 +111,36 @@ key rules:
 	- This means VPC-A is peered with VPC-B and VPC-B is peered with VPC-C. then VPC-A cannot talk to VPC-C.
 
 
+
+By default all AWS resources are public. To make them private you have to use VPC Endpoints (AWS PrivateLink)
+	 Allow you to connect to AWS Resources using a private network 
+	 Scale's horizontally. 
+
+We can use this as a alternative to using a NAT Gateway
+
+Types of Endpoints: 
+- Interface Endpoints: 
+	- Provisions an ENI (private IP address) as an entry point (Must attach a SG)
+	- Supports most AWS services
+	- per hour + per GB of data processed
+- Gateway Endpoint: 
+	- Provisions a gateway and must be used as a target in a route table (does not use SG's)
+	- Supports both S3 and DynamoDB
+	- Free
+
+##### IPV6
+format - hexadecimal. 
+![[Screenshot 2026-06-05 at 16.33.07.png]]
+
+![[Screenshot 2026-06-05 at 16.34.30.png]]
+
+
+**Egress-Only Internet Gateway:** 
+- Specifically for IPv6 Addresses, they are like NAT gateways but for IPv6. 
+
+- Outbound traffic only 
+
+
+**IPv6 Dual Stack Routing:**
+
+

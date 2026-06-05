@@ -12,3 +12,12 @@ the /24 means the first 24 bits are the network path address
 
 ![[Screenshot 2026-06-05 at 14.44.48.png]]
 
+
+Refer to [[Subnetting]]
+
+Example: 198.168.0.0/16 --> how many combinations does this allow
+
+32 - 16 = 16 
+$$2^{16} = 65536\text{ total combinations}$$
+
+

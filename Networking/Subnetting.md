@@ -71,7 +71,8 @@ $$2^0 = 1\text{ total combinations}$$
 **Example 3:**
 192.168.1.0/24 --> How many combinations?
 
-32-24 = 
+32-24 = 8 switch left 
+$$2^8 = 256\text{ total combinations}$$
 
 
 

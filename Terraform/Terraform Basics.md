@@ -27,4 +27,21 @@ So once IaC spins up an empty EC2 instance. the config management would log into
 Terraform state file `(terraform.tfstate)`- this is how Terraform manages your cloud infrastructure. it is a BLUEPRINT. - This holds all your dependencies, like the VPC's ID,  and holds a record of your existing infrastructure. Ensures **Idempotence**
 	Idempotencey is the principle that no matter how many times you run an operation, the outcome remains the same. 
 
+Desired vs Current state:
+- Current State - is your up to date state file `(.tfstate)`
+- Desired State `(.tf)`- this is your terraform config, it is your goal expressed as code. it is your declaration of how you want your cloud infrastructure to look, function, and connect when everything's built
 
+$$\text{Desired State} - \text{Current State} = \text{Action Required}$$
+
+Based on this Terraform will either Scale up, Scale down, cleanup
+
+Note: We don't create the `.tfstate` file this is automatically created after the first `terraform apply` where all resources from the desired state is applied. 
+
+
+##### Terraform Providers
+
+This how Terraform actually is able to deploy resources.
+
+A provider is just a plugin
+Example: AWS
+![[Screenshot 2026-06-07 at 15.54.19.png]]

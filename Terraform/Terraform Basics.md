@@ -45,3 +45,22 @@ This how Terraform actually is able to deploy resources.
 A provider is just a plugin
 Example: AWS
 ![[Screenshot 2026-06-07 at 15.54.19.png]]
+
+we run the following commands: 
+`terraform init` - initialises required plugins 
+`terraform plan` - Represents our desired state, it shows you what terraform will be doing
+	 ![[Screenshot 2026-06-07 at 16.09.03.png]]
+`terraform apply` - This makes things happen, it deploys the code. 
+
+`terraform destroy` - destroys all remote objects managed by a particular Terraform configuration. it deletes everything.
+
+
+**Resource Block:** 
+This defines a resource you want to manage in your terraform config
+![[Screenshot 2026-06-07 at 16.17.32.png]]
+
+`"aws_instance"` (The Resource Type) - This is a predefined keyword owned by AWS provider  --> it tells Terraform what kind of infrastructure to provision. in this case its a EC2 virtual server instance. 
+`"Test` (The Local Resource Name) - Custom nickname we invent. 
+`"ami"` (Amazon Machine Image) - tells AWS which OS to install in your EC2 instance. 
+
+

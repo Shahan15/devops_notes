@@ -21,3 +21,10 @@ So once IaC spins up an empty EC2 instance. the config management would log into
 - Testing and Validation - very important as you can delete and create useless resources that will cost money
 - Start with the MVP 
 - apply DRY principles. 
+
+##### Terraform State file 
+
+Terraform state file `(terraform.tfstate)`- this is how Terraform manages your cloud infrastructure. it is a BLUEPRINT. - This holds all your dependencies, like the VPC's ID,  and holds a record of your existing infrastructure. Ensures **Idempotence**
+	Idempotencey is the principle that no matter how many times you run an operation, the outcome remains the same. 
+
+

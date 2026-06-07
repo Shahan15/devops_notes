@@ -64,3 +64,8 @@ This defines a resource you want to manage in your terraform config
 `"ami"` (Amazon Machine Image) - tells AWS which OS to install in your EC2 instance. 
 
 
+`Terraform import `- bringing existing resources into terraform management. 
+
+Code block: 
+![[Screenshot 2026-06-07 at 19.03.23.png]]![[Screenshot 2026-06-07 at 19.05.24.png]]
+

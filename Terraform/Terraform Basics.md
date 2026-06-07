@@ -37,6 +37,10 @@ Based on this Terraform will either Scale up, Scale down, cleanup
 
 Note: We don't create the `.tfstate` file this is automatically created after the first `terraform apply` where all resources from the desired state is applied. 
 
+you can store Statefile locally or remotely like a S3 or Terraform Cloud
+
+##### How to use a S3 bucket to store a Statefile
+
 
 ##### Terraform Providers
 

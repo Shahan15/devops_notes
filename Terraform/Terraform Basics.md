@@ -41,7 +41,12 @@ you can store Statefile locally or remotely like a S3 or Terraform Cloud
 
 ##### How to use a S3 bucket to store a Statefile
 
+We create a S3 Bucket as so: 
+![[Screenshot 2026-06-07 at 19.31.59.png]]
 
+and add it as backend in our desired.tf file
+
+![[Screenshot 2026-06-07 at 19.30.37.png]]
 ##### Terraform Providers
 
 This how Terraform actually is able to deploy resources.
@@ -73,3 +78,24 @@ This defines a resource you want to manage in your terraform config
 Code block: 
 ![[Screenshot 2026-06-07 at 19.03.23.png]]![[Screenshot 2026-06-07 at 19.05.24.png]]
 
+
+
+#####
+
+`terraform Init` - Initialises a working directory containing terraform config files and downloads providers defined
+
+`terraform validate` - Validates the terraform configuration files in the responsive directory. Makes sure they are syntactically valid and internally consistent 
+
+`terraform plan` - creates an execution plan, it shows you all that will happen when you do `terraform apply`. compares your current state with desired state.
+
+`terraform apply` - applies the plan. 
+
+
+##### Variables
+
+Variables in terraform are a way to parameterise your configurations. so instead of hardcoding values such ami, region etc. you can use variables - its normal stuff
+
+
+
+
+``

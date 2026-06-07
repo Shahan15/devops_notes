@@ -93,9 +93,48 @@ Code block:
 
 ##### Variables
 
-Variables in terraform are a way to parameterise your configurations. so instead of hardcoding values such ami, region etc. you can use variables - its normal stuff
+Variables in terraform are a way to parameterise your configurations. so instead of hardcoding values such ami, region etc. you can use variables - The normal stuff
+
+Its like if we treat our `tf` file as a function. we can pass in Variables in the function. 
+
+We have different types of Variables:
+
+- **Input Variables** are the parameters passed _into_ the function (arguments).
+    
+- **Local Variables** are internal temporary variables used _inside_ the function to clean up repetitive logic (local scope variables).
+    
+- **Output Variables** are the return values passed _out_ of the function when it finishes running (return statements).
 
 
+We would make a `variables.tf` file: 
+This would be the Input variables
+
+```Terraform
+variable "server_size" {
+  type        = string
+  description = "The hardware footprint for our EC2 instances"
+  default     = "t2.micro" # Optional fallback value
+}
+
+variable "environment" { type = string }
+```
+
+then in our main infrastructure files (e.g. `ect.tf`), we reference the variable using the prefix `var` followed by variable name: 
+
+```Terraform
+resource "aws_instance" "web" {
+  ami           = "ami-06422669907866d20"
+  instance_type = var.server_size # ◄ Variable injected here
+}
+```
 
 
-``
+We also use a `terraform.tfvars` - How does this work alongside the `variables.tf` file we make? 
+`variables.tf` is like a blueprint 
+`terraform.tfvars`is the pen we fill the blueprint out with. 
+
+So for example in our `terraform.tfvars` we could have: 
+```Terraform
+instance_type = "t3.micro" 
+environment = "production"
+```

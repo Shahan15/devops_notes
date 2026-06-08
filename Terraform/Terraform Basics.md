@@ -138,3 +138,20 @@ So for example in our `terraform.tfvars` we could have:
 instance_type = "t3.micro" 
 environment = "production"
 ```
+
+
+![[Screenshot 2026-06-08 at 01.07.41.png]]
+
+
+
+##### Modules
+
+A terraform module is essentially a collection of configuration files that are grouped together to build a single piece of infrastructure. like an EC2 instance or more complex networking. 
+	 You can define a module once and you can re-use this across environment and projects
+
+**What makes a good module?**
+- Simplicity
+- Documentation 
+- Modularity - Do one thing, and do it perfectly.
+- Reusability
+- Output Values

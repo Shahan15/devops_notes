@@ -59,7 +59,7 @@ What is a DockerFile?
 - `WORKDIR` - sets the working directory for subsequent instructions. It looks to see if a folder path defined in `WORKDIR` exists inside the container. If it doesn't, **it creates it**. it doesn't put any local files here. it is empty. 
 - `COPY` - this copies the files from where we define and dumps it into the folder that `WORKDIR` has created.
 - `CMD` - Specifies the command to run when the container starts
- ![Screenshot 2026-05-24 at 20.08.46.png](app://eb7517261d53ae17b6d8d7f50ec32dee63ef/Users/shahan/Documents/Obsidian%20Vault/Screenshot%202026-05-24%20at%2020.08.46.png?1779649732353)
+ ![Screenshot 2026-05-24 at 20.08.46.png|313](app://eb7517261d53ae17b6d8d7f50ec32dee63ef/Users/shahan/Documents/Obsidian%20Vault/Screenshot%202026-05-24%20at%2020.08.46.png?1779649732353)
 
 
 Also, In modern software engineering, we use Microservices. This means One container does exactly one job. so e.g.: 

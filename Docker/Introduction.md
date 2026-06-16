@@ -56,8 +56,8 @@ What is a DockerFile?
 5 key commands in docker file: 
 - `FROM` - Specifies base image to use for the docker image. e.g. if you have a python image you use python base image etc
 - `RUN` - executes commands in container. used to install packages or update dependencies 
-- `COPY` - Copies files from host machine into the container 
-- `WORKDIR` - sets the working directory for subsequent instructions. 
+- `WORKDIR` - sets the working directory for subsequent instructions. It looks to see if a folder path defined in `WORKDIR` exists inside the container. If it doesn't, **it creates it**. it doesn't put any local files here. it is empty. 
+- `COPY` - this copies the files from where we define and dumps it into the folder that `WORKDIR` has created.
 - `CMD` - Specifies the command to run when the container starts
  ![Screenshot 2026-05-24 at 20.08.46.png](app://eb7517261d53ae17b6d8d7f50ec32dee63ef/Users/shahan/Documents/Obsidian%20Vault/Screenshot%202026-05-24%20at%2020.08.46.png?1779649732353)
 

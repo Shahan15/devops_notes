@@ -55,4 +55,15 @@ Next we build the image:
 next we actually build the container: 
 `docker run -d --name myapp --network my-custom-network -p 5002:5002 hello-flask-mysql`
 
+
+|**Component**|**What it Means**|**Technical Purpose**|
+|---|---|---|
+|**`docker run`**|**The Core Action**|Tells Docker to create a brand new container from an image and start it up.|
+|**`-d`**|**Detached Mode**|Runs the container silently in the background. It frees up your terminal immediately so you can keep typing other commands while the app runs.|
+|**`--name myapp`**|**Container Naming**|Assigns the friendly name `myapp` to this running instance. If you don't provide this, Docker will randomly assign a funny name (like `determined_bohr`). Naming it makes it easy to run commands like `docker logs myapp` or `docker stop myapp`.|
+|**`--network my-custom-network`**|**Network Isolation**|Plugs this container directly into an existing virtual network called `my-custom-network`. This allows this container to easily talk to other containers (like a MySQL database) on that same network using just their container names as hostnames.|
+|**`-p 5002:5002`**|**Port Mapping**|Bridges the gap between your host machine (Mac/PC) and the isolated container. It follows the pattern `HostPort:ContainerPort`. It opens up port `5002` on your actual computer and routes all traffic directly into port `5002` inside the container where the Flask app is listening.|
+|**`hello-flask-mysql`**|**The Blueprint (Image)**|This is the final argument and tells Docker _which_ image blueprint to use to spawn this container. It will look for `hello-flask-mysql` locally on your machine, and if it can't find it, it will try to pull it from Docker Hub.|
+
  _Analogy:_ It's what happens when you double-click the installer and the actual application opens up on your screen.
+

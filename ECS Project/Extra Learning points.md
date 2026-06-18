@@ -24,6 +24,12 @@ For Serverless ECS we can use Fargate
 However to Run the ECS - We need a Task Definition - This is a JSON blueprint that tells Amazon HOW to run your Docker Containers - its like a docker-compose. 
 
 
-Next we have an Application Load Balancer - This Sits INFRONT of our ECS and it distributes traffic and allows different microservices to use the same URL
+##### ALB 
+
+Next we have an Application Load Balancer - This Sits INFRONT of our ECS and it distributes traffic and allows different microservices to use the same URL and also balances traffic i.e. if you have multiple EC2 instances, makes sure one isnt getting all the traffic. 
+
+###### So how is this relevant to our project?
+
+
 
 

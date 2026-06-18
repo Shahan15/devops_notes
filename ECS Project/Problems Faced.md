@@ -10,5 +10,9 @@ Issue: Very long build times of images ~80-150 seconds.
 Solution: Separated go.mod and go.sum into separate layers and introduced cache mounts.
 
 
+Issue: When i ran a deployment in ECS i would get the following error -`docker push 446276073026.dkr.ecr.eu-west-1.amazonaws.com/memos-ecs:v3.amd`
 
+this is because i was developing on a mac and the images built were made for mac chips i.e. `/arm`. 
 
+Solution: added `platform` in my docker-compose 
+![[Screenshot 2026-06-18 at 16.44.02.png]]

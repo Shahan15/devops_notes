@@ -12,3 +12,18 @@ When we run Go application. the code is compiled. it translates every line and s
 So when we run it a second time, with a mount attached - like for example if we change a print statement or something. Docker checks the local hard-drive sees the compiled code and packages and sees these haven't changed. so it uses that. 
 
 
+#### AWS networking/Infrastructure how it all ties together
+
+We have our image in ECR - Elastic Container Registry. This is just a repo to store your image
+
+Then we have ECS Cluster - Elastic Container Service. Cluster just means 'grouping' for your container deployments. like you might have a cluster for production or staging etc. 
+	 ECS makes you handle the infrastructure required to run the containers. 
+
+For Serverless ECS we can use Fargate 
+
+However to Run the ECS - We need a Task Definition - This is a JSON blueprint that tells Amazon HOW to run your Docker Containers - its like a docker-compose. 
+
+
+Next we have an Application Load Balancer - 
+
+

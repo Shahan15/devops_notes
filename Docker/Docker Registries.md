@@ -57,3 +57,29 @@ docker run -p 5002:5002 --network my-app-network 665727140634.dkr.ecr.eu-west-2.
 also instead of building the image locally, we can pull it from our aws ECR Repo
 
 ![[Screenshot 2026-05-27 at 11.45.10.png]]
+
+
+
+to tag image example:
+
+docker tag memos-ecs:latest 446276073026.dkr.ecr.eu-west-1.amazonaws.com/memos-ecs:latest
+
+##### The Breakdown
+
+#### 1. `docker tag`
+
+This tells the Docker CLI that you want to create an alias for an image that already exists locally on your MacBook Air. It does not create a copy or duplicate the image files; it just adds a new name tag to the exact same image ID.
+
+#### 2. `memos-ecs:latest` (The Source)
+
+This is the name and version tag of the image currently sitting on your local machine that you just finished building.
+
+#### 3. `446276073026.dkr.ecr.eu-west-1.amazonaws.com/memos-ecs:latest` (The Target)
+
+This long string is the explicit address blueprint required by AWS. Docker needs this entire format to know where to upload the image on the internet. It breaks down into three core components:
+
+|**Component**|**Example from your command**|**What it means**|
+|---|---|---|
+|**AWS Registry Domain**|`446276073026.dkr.ecr.eu-west-1.amazonaws.com`|Your specific AWS Account ID (`446276073026`) and the specific region (`eu-west-1`, which is Ireland) where your ECR registry lives.|
+|**Repository Name**|`/memos-ecs`|The specific bucket/repository inside your ECR console created to hold this project's images.|
+|**Image Tag**|`:latest`|The version label for this build.|

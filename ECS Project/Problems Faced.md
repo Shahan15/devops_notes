@@ -8,3 +8,5 @@ Solution: Introduced a third stage - this simply copied the Compiled Go code fro
 Issue: Very long build times of images ~80-150 seconds. 
 
 Solution: Separated go.mod and go.sum into separate layers and introduced cache mounts.
+
+

@@ -35,4 +35,20 @@ Although we don't have different microservices such as frontend, backend since G
 Here ALB functions as a way to ensure High Availability. We would run multiple copies of that One container. So if there is loads of traffic the ALB will distribute the traffic to the identical containers. 
 It also handles SSL/TSL termination - https
 
+##### Security Group
+
+We place security group to allow inbound traffic from port 80/443 (Http/Https)
+
+##### Route 53
+
+This is AWS's managed DNS service - scalable, fully managed.  
+
+Here we will point our domain to the ALB. 
+
+##### ACM Certificate
+
+AWS Certificate Manager - this is a managed SSL/TSL certificate provided by Amazon. 
+
+We will attach ACM certificate to our ALB for HTTPS.
+
 

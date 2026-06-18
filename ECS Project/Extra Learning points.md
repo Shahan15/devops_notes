@@ -10,3 +10,5 @@ a **Mount** is a bridge between these isolated instances and your hard drive. Wh
 When we run Go application. the code is compiled. it translates every line and saves these files (called `.a` files) into a local folder called `Compiler Cache` 
 
 So when we run it a second time, with a mount attached - like for example if we change a print statement or something. Docker checks the local hard-drive sees the compiled code and packages and sees these haven't changed. so it uses that. 
+
+

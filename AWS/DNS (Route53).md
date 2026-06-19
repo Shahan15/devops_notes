@@ -22,6 +22,7 @@ So Route 53 directs traffic - its a switchboard - Each domain and subdomain you 
 ##### Hosted Zones
 - A hosted zone is a Container that Holds all records for a domain. Tells Route 53 how to route the traffic 
 	- Public Hosted Zones - Contains records that specify how to route traffic on the internet. - so hence is good for a domain that will be accessible from internet
+		- When you create a Hosted Zone. AWS generates 4 unique, secure Name Servers (NS records) specifically for your zone. When you input these NS records in your domain AWS takes fully authority of that domain's traffic
 	- Private Hosted Zones - Contains records that specify how you route traffic within one or more VPC's
 
 ##### Routing Policies: 
@@ -36,4 +37,4 @@ So Route 53 directs traffic - its a switchboard - Each domain and subdomain you 
 	- Geolocation - Route traffic based on where user is located. Meaning you can show different content to different locations
 	- Health Checks - Re-routes traffic based on health of your resources.
 		 ![[Screenshot 2026-06-06 at 19.53.34.png]]
-	- 
+

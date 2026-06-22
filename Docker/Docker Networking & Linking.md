@@ -52,6 +52,8 @@ When you type `http://127.0.0.1:5002/` into your browser:
 Next we build the image: 
 `docker build -t hello-flask-mysql .` --> this creates the image of our app. its like a .exe file for an app
 
+`-t` this allows us to tag the image 
+
 next we actually build the container: 
 `docker run -d --name myapp --network my-custom-network -p 5002:5002 hello-flask-mysql`
 

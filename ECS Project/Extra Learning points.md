@@ -85,5 +85,7 @@ However as noted, the ECR images are actually hosted in an S3 bucket behind the 
 
 
 ##### Route Tables
+So lets say my EC2 instance is in my private subnet. i want it to send some data to store in a S3. It checks the subnet Route tables to see where its allowed to send data. if its 0.0.0.0/0 it means it can freely send data over public internet (via a NAT gateway or internet Gateway). if its the same as our VPC then it means it cant send data outside the VPC. 
 
+Every packet looks at its subnet Route Table and sees where the subnet can/is able to route data to. 
 

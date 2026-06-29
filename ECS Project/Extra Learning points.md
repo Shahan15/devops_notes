@@ -70,7 +70,7 @@ So normally for resources to talk to services outside of its private subnet, it 
 	 This introduces security risks, and NAT gateway is expensive to run.
 
 so what do we do instead? 
-we use AWS PrivateLink - This places an Elastic Network Interface (ENI) - essentially a virtual network card with a private IP address - this is directly in the private subnet. 
+we use AWS PrivateLink - This places an Elastic Network Interface (ENI) - essentially a virtual network card with a private IP address - this is directly in the private subnet.  but this is for the Resource itself. so we provide the ENI to the ECS inside the Private subnet 
 
 So When lets say your ECS Service wants to pull new image from ECR, then AWS would update your local VPC DNS. Application will send a request to ECR using its private IP address inside its own subnet. the ENI will then route the traffic to ECR across AWS's private backbone. 
 

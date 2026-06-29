@@ -65,6 +65,11 @@ Traffic flow goes as follows:
 2. The Security Group: if WAF says request is clean, the traffic moves forward to the SG, this evaluates if it the protocol and port is allowed. 
 3. then the traffic reaches the application code/endpoint/target group
 
-##### VPC Endpoints
-So normally for resources to talk to services outside of its private subnet, it has to travel through the public internet, via a NAT gateway and then hit the AWS service endpoint. 
-	 This introduces security risks, and NAT gateway is expensive to run.
+	##### VPC Endpoints
+	So normally for resources to talk to services outside of its private subnet, it has to travel through the public internet, via a NAT gateway and then hit the AWS service endpoint. 
+		 This introduces security risks, and NAT gateway is expensive to run.
+	
+	so what do we do instead? 
+	we use AWS PrivateLink - This places an Elastic Network Interface (ENI) - essentially a virtual network card with a private IP address - this is directly in the private subnet. 
+	
+	So When lets say your ECS Service wants to pull new image from ECR, then AWS would update your local VPC DNS. Application will send a request to ECR using its private IP address inside its own subnet. the ENI will then route the traffic to ECR across AWS's private backbone. 

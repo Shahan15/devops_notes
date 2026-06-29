@@ -82,3 +82,8 @@ The way ECR works under the hood is that it has two endpoints:
 
 However as noted, the ECR images are actually hosted in an S3 bucket behind the scenes, so you also need an S3 Gateway Endpoint. otherwise the Docker Registry Endpoint wont be able to actually see the S3 bucket and get the image. 
 
+
+
+##### Route Tables
+
+

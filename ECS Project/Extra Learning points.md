@@ -51,4 +51,16 @@ AWS Certificate Manager - this is a managed SSL/TSL certificate provided by Amaz
 
 We will attach ACM certificate to our ALB for HTTPS.
 
+##### WAF vs SG's
 
+WAF - Web Application Firewall 
+
+So SG's sit INFRONT of the ALB , they decide what traffic is allowed in and out. They specifically look at IP Addresses, ports and protocols. 
+*Note: We don't apply SG to the VPC itself, we apply the SG to the resource itself. Hence that why its attached to the ALB  
+
+a WAF sits INFRONT of the resource, they inspect the HTTP/HTTPS Headers, cookies, query strings and request bodies. 
+
+Traffic flow goes as follows: 
+1. The Edge (WAF): Traffic hits your public endpoint first - like an ALB, then WAF intercepts this request and reads the HTTP Headers and body, if it sees an SQL injection it drops the request. 
+2. The Security Group: if WAF says request is clean, the traffic moves forward to the SG, this evaluates if it the protocol and port is allowed. 
+3. then the traffic reaches the application code/endpoint/target group

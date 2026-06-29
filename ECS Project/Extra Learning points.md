@@ -64,3 +64,7 @@ Traffic flow goes as follows:
 1. The Edge (WAF): Traffic hits your public endpoint first - like an ALB, then WAF intercepts this request and reads the HTTP Headers and body, if it sees an SQL injection it drops the request. 
 2. The Security Group: if WAF says request is clean, the traffic moves forward to the SG, this evaluates if it the protocol and port is allowed. 
 3. then the traffic reaches the application code/endpoint/target group
+
+##### VPC Endpoints
+So normally for resources to talk to services outside of its private subnet, it has to travel through the public internet, via a NAT gateway and then hit the AWS service endpoint. 
+	 This introduces security risks, and NAT gateway is expensive to run.

@@ -89,3 +89,17 @@ So lets say my EC2 instance is in my private subnet. i want it to send some data
 
 Every packet looks at its subnet Route Table and sees where the subnet can/is able to route data to. 
 
+
+
+##### IAM 
+
+IAM encompasses IAM Roles and IAM Users - Users is actual users for humans to use with set permissions. 
+
+IAM Task Roles - These are roles you assign tasks so they can execute tasks on your AWS account. Like if an ECS service wants to spin up a container, it needs permission to do that because by default it is not allowed to just do that. 
+
+when we make an IAM Role - this is empty and useless till we attach a policy which actually provides the permissions we want to provide to the role. So always remember ROLE + IAM POLICY + IAM ROLE POLICY ATTACH
+	 so we create the role --> Create the policy --> attach the policy. 
+
+
+
+

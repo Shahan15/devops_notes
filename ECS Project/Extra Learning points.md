@@ -43,7 +43,9 @@ We place security group to allow inbound traffic from port 80/443 (Http/Https)
 
 This is AWS's managed DNS service - scalable, fully managed.  
 
-Here we will point our domain to the ALB.  So our user hits Route53 when they type in the Domain and then that will redirect to our ALB. 
+Here we will point our domain to the ALB.  So our user hits Route53 when they type in the Domain and then that will redirect to our ALB.  
+
+We create a Hosted Zone - this spits out 4 Name Servers and when these are inputted into your Domain it gives Route53 full control over the domain or subdomain. 
 
 ##### ACM Certificate
 

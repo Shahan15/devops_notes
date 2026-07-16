@@ -78,11 +78,11 @@ This is the name and version tag of the image currently sitting on your local ma
 
 This long string is the explicit address blueprint required by AWS. Docker needs this entire format to know where to upload the image on the internet. It breaks down into three core components:
 
-|**Component**|**Example from your command**|**What it means**|
-|---|---|---|
-|**AWS Registry Domain**|`446276073026.dkr.ecr.eu-west-1.amazonaws.com`|Your specific AWS Account ID (`446276073026`) and the specific region (`eu-west-1`, which is Ireland) where your ECR registry lives.|
-|**Repository Name**|`/memos-ecs`|The specific bucket/repository inside your ECR console created to hold this project's images.|
-|**Image Tag**|`:latest`|The version label for this build.|
+| **Component**           | **Example from your command**                  | **What it means**                                                                                                                    |
+| ----------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **AWS Registry Domain** | `446276073026.dkr.ecr.eu-west-1.amazonaws.com` | Your specific AWS Account ID (`446276073026`) and the specific region (`eu-west-1`, which is Ireland) where your ECR registry lives. |
+| **Repository Name**     | `/memos-ecs`                                   | The specific bucket/repository inside your ECR console created to hold this project's images.                                        |
+| **Image Tag**           | `:latest`                                      | The version label for this build.                                                                                                    |
 
 
 docker push 446276073026.dkr.ecr.eu-west-1.amazonaws.com/url-shortner:latest

@@ -29,3 +29,21 @@ if app is small, 1-2 containers - low traffic, infrequent deploys  --> then use 
 
 ![[Screenshot 2026-08-27 at 13.07.08.png]]
 
+ **User $\rightarrow$ Kubernetes Master (API Server):** 
+ So when a user runs an *kubectl apply* or whatever talks to your cluster - this goes straight to the **KUBERNETES MASTER** via the **KUBERNETES API**. Nothing is applied. 
+
+**Kubernetes Master $\rightarrow$ Kubernetes Node (Internal APIs):**
+The master decides which worker machine (**Node**) has enough CPU and RAM.
+it sends a message over **internal API** to an agent running on that node telling it that it needs to run this container. 
+
+**Kubernetes Node $\rightarrow$ CRI-O (CRI gRPC)**
+The node agent contacts **CRI-O** (the high-level container engine) using a standard communication line (**CRI gRPC**).
+CRI-O downloads the container image (e.g. from Docker Hub) and sets up the network.
+
+**CRI-O $\rightarrow$ runc (FORK / EXEC)**
+CRI-O passes the heavy lifting down to **runc** (the low-level worker tool) using basic system commands (**FORK / EXEC**)
+
+**runc $\rightarrow$ Linux Kernel / Container (FORK / CLONE)** 
+**runc** talks directly to the **Linux Kernel** using **FORK / CLONE** commands.
+The kernel puts walls around the process (namespaces) and limits its CPU/RAM usage (cgroups).
+**Your container is now live and running!**

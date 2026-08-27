@@ -47,3 +47,7 @@ CRI-O passes the heavy lifting down to **runc** (the low-level worker tool) usin
 **runc** talks directly to the **Linux Kernel** using **FORK / CLONE** commands.
 The kernel puts walls around the process (namespaces) and limits its CPU/RAM usage (cgroups).
 **Your container is now live and running!**
+
+
+What actually runs the container is the Runtime Engine. Kubernetes is just the orchestrator. 
+it talks to the engine via the CRI (Container Runtime interface)![[Screenshot 2026-08-27 at 19.20.20.png]]

@@ -51,3 +51,22 @@ The kernel puts walls around the process (namespaces) and limits its CPU/RAM usa
 
 What actually runs the container is the Runtime Engine. Kubernetes is just the orchestrator. 
 it talks to the engine via the CRI (Container Runtime interface)![[Screenshot 2026-08-27 at 19.20.20.png]]
+
+**Key Terms:**
+- K8s Cluster - is a collection of nodes that provide computer, memory and networking resources.
+	- K8s uses these resources to run the various work loads/ infrastructure.
+- Nodes - This is one host e.g. like a VM or Physical machine. Each Node can run several components of K8s. 
+- Control Plane/Master Node - This is the command centre that controls everything in the cluster. 
+- Kube API Server - This is the entry point of all administrative commands
+- ETCD - This stores cluster data and state, its like the K8s memory
+- Kube Controller Manager - Cluster supervisor - it makes sure the desired state matches the reality. 
+- Kube Schedular - This decides which work nod your Pod uses. 
+- Cloud Controller Manager - Connects with Cloud provider API 
+- Pod - a collection of a containers that are co located on a single machine - these are the smallest units within K8s world. These are wrappers around containers. 
+- Service - this is a load balancer that can bring traffic down to a collection of pods 
+- Deployment/Replica set - used for replicating a container multiple times for availability or scalability. 
+
+**Worker Node Terms:** 
+- Kublet - an agent that talks to the master node making sure the containers are running as it should be. 
+- Kube-Proxy - Ensures each pod in the Node can communicate with other nodes in the cluster
+![[Screenshot 2026-08-27 at 19.44.18.png]]

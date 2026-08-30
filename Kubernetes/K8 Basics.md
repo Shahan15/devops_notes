@@ -97,3 +97,10 @@ we can deploy this with:
 
 we can see the deployment with: 
 `kubectl get deploy`
+
+
+##### K8 Namespaces
+
+Namespace allows you to partition your cluster:
+
+![[Screenshot 2026-08-30 at 11.31.08.png]]

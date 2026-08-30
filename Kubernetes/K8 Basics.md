@@ -70,3 +70,30 @@ it talks to the engine via the CRI (Container Runtime interface)![[Screenshot 20
 - Kublet - an agent that talks to the master node making sure the containers are running as it should be. 
 - Kube-Proxy - Ensures each pod in the Node can communicate with other nodes in the cluster
 ![[Screenshot 2026-08-27 at 19.44.18.png]]
+
+
+We can use 'kind' which is a tool that lets you run K8s locally. 
+We made this yaml file:
+![[Screenshot 2026-08-30 at 11.13.26.png|333]]
+
+we run `kind create cluster --config kind-config.yaml --name k8s-demo`
+to create a k8 cluster
+
+and using `kubectl cluster-info --context kind-k8s-demo` we can see the cluster running. 
+
+with `kubectl cluster-info dump` we can see more info about our nodes:
+
+![[Screenshot 2026-08-30 at 11.16.41.png|586]]
+
+
+we can run a pod with `kubectl run pod nginx --image=nginx`
+and see the pods running with `get pods`
+
+![[Screenshot 2026-08-30 at 11.17.27.png]]
+
+
+we can deploy this with:
+`kubectl create deployment nginx --image=nginx`
+
+we can see the deployment with: 
+`kubectl get deploy`

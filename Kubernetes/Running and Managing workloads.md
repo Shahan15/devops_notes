@@ -20,6 +20,16 @@ it represents one instance of the image that has been generated from an applicat
 
 Deployment is a powerful kubernetes controller - lets automatic scaling, easy upgrades or roll backs
 
+
+> [!NOTE] > *Deployment* in K8s is a NOUN - it is a specific API resource object defined by a YAML file which manages application rollouts and scaling. 
+
+> [!NOTE] >  it is like an AWS ECS Service. 
+
+
+
 **Deployments YAML**
 
 ![[Screenshot 2026-08-31 at 16.24.07.png]]
+
+Replicas - this means "Always keep 3 copies running"
+

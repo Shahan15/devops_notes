@@ -1,4 +1,4 @@
-![[Screenshot 2026-08-31 at 16.52.39.png]]![[Screenshot 2026-08-30 at 12.13.16.png]]
+![[Screenshot 2026-08-31 at 20.47.42.png]]![[Screenshot 2026-08-31 at 16.52.39.png]]![[Screenshot 2026-08-30 at 12.13.16.png]]
 
 A pod is the smallest element that you can create in a Kubernetes cluster. 
 it represents one instance of the image that has been generated from an application. 
@@ -45,3 +45,33 @@ if we were to delete one pods. kubectl would automatically bring up another. bec
 
 so to delete the deployment we have to run
 `kubectl delete deploy nginx-deployment`
+
+
+##### Imperative declarations
+
+when we write out the YAML code and everything - that is Declarative 
+
+imperative is when we run a command to generate the boilerplate code :
+`kubectl create deploy nginx-deployment --image=nginx --replicas=2`
+
+
+##### ReplicaSets
+
+Replicas - this means "Always keep 3 copies running" or whatever number we set
+
+Replicas are simplest K8s pod controller resource. 
+
+Deployment is like the queen bee - it maintains order and keeps everything running smoothly. it overseas everything. 
+	 under deployments you can have 2 different versions of your application running 
+
+![[Screenshot 2026-08-31 at 20.45.07.png|435]]
+
+
+##### CrashLoopBackOff
+![[Screenshot 2026-08-31 at 20.47.42.png]]
+
+to debug this we can try: 
+- `kubectl describe pod_name` - check events at the bottom
+- `kubectl get logs --previous`
+
+

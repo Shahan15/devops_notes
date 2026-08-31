@@ -1,4 +1,4 @@
-![[Screenshot 2026-08-30 at 12.13.16.png]]
+![[Screenshot 2026-08-31 at 16.52.39.png]]![[Screenshot 2026-08-30 at 12.13.16.png]]
 
 A pod is the smallest element that you can create in a Kubernetes cluster. 
 it represents one instance of the image that has been generated from an application. 
@@ -33,3 +33,15 @@ Deployment is a powerful kubernetes controller - lets automatic scaling, easy up
 
 Replicas - this means "Always keep 3 copies running"
 
+after writing the above YAML file. we ran: 
+`kubectl apply -f nginx-deploy.yaml` and with `kubectl get deploy` we can see the deployment: 
+![[Screenshot 2026-08-31 at 16.51.02.png]]
+
+and we can see the pods running with `kubectl get pods`
+
+![[Screenshot 2026-08-31 at 16.52.39.png]]
+
+if we were to delete one pods. kubectl would automatically bring up another. because we set `replica set` to 3.  Our Deployment is the ***Boss***
+
+so to delete the deployment we have to run
+`kubectl delete deploy nginx-deployment`

@@ -68,10 +68,28 @@ Deployment is like the queen bee - it maintains order and keeps everything runni
 
 
 ##### CrashLoopBackOff
+
 ![[Screenshot 2026-08-31 at 20.47.42.png]]
 
 to debug this we can try: 
 - `kubectl describe pod_name` - check events at the bottom
 - `kubectl get logs --previous`
 
+##### Init Containers
 
+![[Screenshot 2026-08-31 at 22.56.34.png]]
+
+these run before any other Containers 
+
+##### Sidecar Pattern
+
+This is a helper container that runs alongside the main app
+Both share the same Pod > same network and volumes 
+extends functionality without modifying the main app
+
+![[Screenshot 2026-08-31 at 23.03.20.png|417]]
+
+
+##### Adapter Pattern
+
+![[Screenshot 2026-08-31 at 23.06.29.png]]

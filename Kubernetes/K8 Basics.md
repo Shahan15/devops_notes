@@ -29,8 +29,8 @@ if app is small, 1-2 containers - low traffic, infrequent deploys  --> then use 
 
 ![[Screenshot 2026-08-27 at 13.07.08.png]]
 
- **User $\rightarrow$ Kubernetes Master (API Server):** 
- So when a user runs an *kubectl apply* or whatever talks to your cluster - this goes straight to the **KUBERNETES MASTER** via the **KUBERNETES API**. Nothing is applied. 
+**User $\rightarrow$ Kubernetes Master (API Server):** 
+So when a user runs an *kubectl apply* or whatever talks to your cluster - this goes straight to the **KUBERNETES MASTER** via the **KUBERNETES API**. Nothing is applied. 
 
 **Kubernetes Master $\rightarrow$ Kubernetes Node (Internal APIs):**
 The master decides which worker machine (**Node**) has enough CPU and RAM.

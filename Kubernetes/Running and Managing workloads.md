@@ -129,3 +129,25 @@ you have two settings during this:
 - maxSurge: This is how many extra pods can exist during the rollout. Default 25%
 - maxUnavailable: This is how many pods can be down at once. Default 25%
 
+###### Recreate
+- All Existing Pods are killed first, then the new ones are created. 
+- Causes downtime upgrade. 
+
+this is useful when:
+	 App cannot run multiple versions simultaneously
+	 Shared storage conflicts between versions.
+
+
+##### Deployment Rollbacks
+- Deployments keep history of previous ReplicaSets
+- You can rollback to an earlier revision when a rollout fails 
+- K8s simply scales the old ReplicaSet back up. 
+
+![[Screenshot 2026-09-01 at 23.14.19.png]]
+
+
+##### Resource Requests & Limits
+
+Every Container in K8s can specify: 
+- requests - minimum guaranteed CPU/memory the container needs
+- limits - maximum allowed CPU/memory it can use![[Screenshot 2026-09-01 at 23.16.23.png]]

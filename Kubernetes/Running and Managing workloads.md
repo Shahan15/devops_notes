@@ -151,3 +151,9 @@ this is useful when:
 Every Container in K8s can specify: 
 - requests - minimum guaranteed CPU/memory the container needs
 - limits - maximum allowed CPU/memory it can use![[Screenshot 2026-09-01 at 23.16.23.png]]
+
+
+
+##### Limit Ranges
+
+![[Screenshot 2026-09-01 at 23.30.44.png]]

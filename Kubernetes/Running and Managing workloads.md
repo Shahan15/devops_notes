@@ -100,3 +100,15 @@ extends functionality without modifying the main app
  these are used for debugging. Temporary Containers. You inject the container into the pod
  
 ![[Screenshot 2026-09-01 at 21.56.11.png]]
+
+
+QoS = Quality of Service - defines how the scheduler prioritises Pods during resource pressure
+
+![[Screenshot 2026-09-01 at 22.11.53.png]]![[Screenshot 2026-09-01 at 22.14.21.png]]
+
+
+##### Probes
+
+Probes are health checks that run by the Kubelet to monitor container state. 
+
+![[Screenshot 2026-09-01 at 22.17.05.png]]

@@ -115,6 +115,17 @@ Probes are health checks that run by the Kubelet to monitor container state.
 
 ![[Screenshot 2026-09-01 at 22.47.51.png|426]]
 
-- LivenessProbe checks if the container is still Alive. 
-- 
+- LivenessProbe checks if the container is still Alive. If this doesnt pass the other probes wont run. 
+
+##### Deployment Strategies
+
+###### Rolling Update
+
+![[Screenshot 2026-09-01 at 22.59.27.png]]
+
+so at any stage of the update - you have a mix, old and new pods
+
+you have two settings during this:
+- maxSurge: This is how many extra pods can exist during the rollout. Default 25%
+- maxUnavailable: This is how many pods can be down at once. Default 25%
 

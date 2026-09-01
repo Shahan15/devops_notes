@@ -93,3 +93,10 @@ extends functionality without modifying the main app
 ##### Adapter Pattern
 
 ![[Screenshot 2026-08-31 at 23.06.29.png]]
+
+
+##### Ephemeral Containers
+
+ these are used for debugging. Temporary Containers. You inject the container into the pod
+ 
+![[Screenshot 2026-09-01 at 21.56.11.png]]

@@ -112,3 +112,9 @@ QoS = Quality of Service - defines how the scheduler prioritises Pods during res
 Probes are health checks that run by the Kubelet to monitor container state. 
 
 ![[Screenshot 2026-09-01 at 22.17.05.png]]
+
+![[Screenshot 2026-09-01 at 22.47.51.png|426]]
+
+- LivenessProbe checks if the container is still Alive. 
+- 
+

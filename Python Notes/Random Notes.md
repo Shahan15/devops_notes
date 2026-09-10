@@ -61,4 +61,10 @@ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 `sorted() `-->  this function takes a list ad sorts it. By default, it sorts from lowest to highest.
 	 We add `reverse=True` to sort it highest to lowest
 
-`count.items()` --> This converts the dictionary into a list of tuples, formatted as `(key, value)`  
+`count.items()` --> This converts the dictionary into a list of tuples, formatted as `(key, value)`  --> or here it would be `(number, frequency)`
+
+`key` --> this arg tells `sorted` function what to sort by
+
+`lambda` -->  this is just a function without a name. its like AWS lambda its just a function without a name.
+	 so we assign each item `x`. 
+	 then we decide to sort them only looking at the frequency. so `x[1]`

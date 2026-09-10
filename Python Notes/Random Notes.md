@@ -29,3 +29,36 @@ print(word[0:8:2]) # Output: "aceg" (took 'a', skipped 'b', took 'c', skipped 'd
 # 3. Negative step (-1) - reverses the entire string 
 print(word[::-1]) # Output: "hgfedcba"
 ```
+
+
+#####
+
+![[Screenshot 2026-09-10 at 14.37.30.png]]
+
+```python
+class Solution:
+
+def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+
+	#This question is asking to tally how many times a number appers and the k most occuring numbers. return it.
+	
+	#HashMap/Dict
+	
+	count = {}
+	
+	
+	for i in range(len(nums)):
+	
+		count[nums[i]] = count.get(nums[i],0) + 1
+	
+	sorted_items = sorted(count.items(), key=lambda x: x[1], reverse=True)
+	
+	# 3. Slice the top k items and grab just the number (x[0])
+	
+	return [x[0] for x in sorted_items[:k]]
+```
+
+`sorted() `-->  this function takes a list ad sorts it. By default, it sorts from lowest to highest.
+	 We add `reverse=True` to sort it highest to lowest
+
+`count.items()` --> This converts the dictionary into a list of tuples, formatted as `(key, value)`  

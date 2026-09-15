@@ -68,3 +68,12 @@ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 `lambda` -->  this is just a function without a name. its like AWS lambda its just a function without a name.
 	 so we assign each item `x`. 
 	 then we decide to sort them only looking at the frequency. so `x[1]`
+
+
+alternatively we can do the following: 
+```python
+sorted(count_items(), key = lambda x: (-x[1], x[0])) 
+```
+
+the negative sign tells python to sort is descending order. 
+we also add `x[0]` to order it alphabetically too or order the first item as well (not specific for the above question)

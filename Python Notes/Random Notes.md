@@ -31,6 +31,7 @@ print(word[::-1]) # Output: "hgfedcba"
 ```
 
 
+*Note: remember that `[:3]` means the first two items. it means stop before 3*
 #####
 
 ![[Screenshot 2026-09-10 at 14.37.30.png]]

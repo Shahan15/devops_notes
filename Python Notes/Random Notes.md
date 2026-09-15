@@ -78,3 +78,38 @@ sorted(count_items(), key = lambda x: (-x[1], x[0]))
 
 the negative sign tells python to sort is descending order. 
 we also add `x[0]` to order it alphabetically too or order the first item as well (not specific for the above question)
+
+
+
+# Binary Tress
+
+![[Screenshot 2026-09-15 at 23.32.44.png]]
+
+
+if we were to add another node on the right tree - it would be a ***'Perfect tree'***
+
+
+Binary Trees can be Represented as Arrays too: 
+
+```python 
+[ , 1 , 2 ,3 ,4 ,5 , 10]
+```
+
+![[Screenshot 2026-09-15 at 23.37.18.png|156]]
+
+the root node would be `i` and the left node would be `2i` and the right node would be `2i + 1`
+a negative number would be null or none 
+
+### DFS 
+
+So we start at the root and we prioritise **DEPTH**
+![[Screenshot 2026-09-15 at 23.41.44.png|308]]
+
+So we go DOWN and LEFT all the way. but we keep trying to go down from `4` then we reach `Null` and so we come back up and try go `Right` that is also `Null`
+
+So we go up to the `2` and explore its right side. We see the `5`. we also check its `Right` and `Left`
+
+![[Screenshot 2026-09-15 at 23.44.34.png|303]]
+
+We come back up to `2`and then to `1` and visit its `Right` side 
+

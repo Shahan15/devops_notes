@@ -51,4 +51,27 @@ To solve this you split your database into smaller chunks and store each chunk i
 To match a database to a real-world use case, you look at whether it leans heavily toward reads or writes, and whether data accuracy or sheer speed matters more.
 
 Example 1: E-Commerce Catalogs (Read Heavy):
-- Here we would choose to use 
+- Here we would choose to use **Relational SQL (PostgreSQL)** with heavy caching OR we could use a Document Database (MongoDB)
+  
+  Why? if products have structured, uniform categories, SQL works well with indexes. 
+  If every product has completely different attributes (e.g., a shirt has a size, but a laptop has RAM and CPU), a schemaless Document DB shines
+  Both need a cache layer like Redis in front to handle millions of shoppers browsing instantly.
+
+
+Example 2: News Feed (Read Heavy):
+- Here we would choose NoSQL with Redis for Caching. News posts are being read by millions of users and new posts are constantly being written. 
+
+Example 3: IoT Sensor Logs (Write Heavy):
+- These primarily are for collecting data. So NoSQL DB would be good here. 
+  
+  why? Millions of data points are being written to the sensor log simultaneously like for temperature, speed etc. Your database needs to be able to handle high velocity high throughput and rapidly changing data.
+
+Example 4: Financial Transactions (Write Heavy + Strict Consistency)
+- Relational SQL (PostgresSQL or MySQL)
+  
+  Why? Data needs to follow ACID and you cant lose transacational data.
+
+Example 5: Chat App Message Ingestion (Write-Heavy
+-  Wide-Column NoSQL (Cassandra)
+
+why? Again this is high velocity and constant. People are texting constantly and thousands of messages will be sent between users within minutes. So we would choose NoSQL here

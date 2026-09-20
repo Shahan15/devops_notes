@@ -21,6 +21,7 @@ What is it good for?
 - _Graph (Neo4j):_ Social networks, fraud detection
 
 
+
 #### Handling Scaling Issues: 
 
 To handle high traffic and massive data volumes, use these architectural patterns: 
@@ -40,7 +41,14 @@ To solve this you split your database into smaller chunks and store each chunk i
 ###### **Consistent Hashing:** A distribution technique used in distributed caches and databases (like Cassandra) to minimise data re-shuffling when nodes are added or removed.
 
 
-
 #### Performance & Reliability Patterns: 
 
 **Caching**: Placing an in-memory store (Redis) in front of a database to serve frequent reads instantly. 
+
+
+
+##### When to choose which database?
+To match a database to a real-world use case, you look at whether it leans heavily toward reads or writes, and whether data accuracy or sheer speed matters more.
+
+Example 1: E-Commerce Catalogs (Read Heavy):
+- Here we would choose to use 

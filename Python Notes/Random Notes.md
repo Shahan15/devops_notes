@@ -13,6 +13,8 @@ Slicing follows the following syntax `[start : stop : step]`
 	 So when we do `[:-1]` the `start` is left blank. it starts at index 0
 	 `stop` is set to `-1` this means it counts backwards. 
 
+so if we do `[-4:]` this would mean start from the 4th character from the back
+
 Note: 
 - If you use **one colon**, Python expects `[ start : stop ]`.
 - If you use **two colons**, Python expects `[ start : stop : step ]`.

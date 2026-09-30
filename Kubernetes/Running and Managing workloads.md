@@ -21,7 +21,7 @@ it represents one instance of the image that has been generated from an applicat
 Deployment is a powerful kubernetes controller - lets automatic scaling, easy upgrades or roll backs
 
 
-> [!NOTE] > *Deployment* in K8s is a NOUN - it is a specific API resource object defined by a YAML file which manages application rollouts and scaling. 
+> [!NOTE] >  **"Deployment"** in K8s is a NOUN - it is a specific API resource object defined by a YAML file which manages application rollouts and scaling. 
 
 > [!NOTE] >  it is like an AWS ECS Service. 
 
@@ -157,3 +157,32 @@ Every Container in K8s can specify:
 ##### Limit Ranges
 
 ![[Screenshot 2026-09-01 at 23.30.44.png]]
+
+##### ResourceQuotas
+
+this enforces total resource usage for a namespace. 
+
+![[Screenshot 2026-09-29 at 23.19.24.png]]
+
+This solves the issue of one team namaspace using up the entire clusters resources. 
+
+we use a Layered enforcement: 
+
+![[Screenshot 2026-09-29 at 23.21.35.png|445]]
+
+
+##### Labels and Annotations
+
+This is key-value pairs we attach to K8s objects (Pods, Services, Deployments etc)
+This allows for organisation. 
+
+![[Screenshot 2026-09-29 at 23.23.37.png|407]]
+
+![[Screenshot 2026-09-29 at 23.26.36.png]]
+
+
+###### Annotations
+
+These are also Key-Values but its non-identifying metadata 
+its used for controllers and automation systems but not for identifying objects. 
+can store descriptive or operational data. ![[Screenshot 2026-09-29 at 23.28.45.png]]

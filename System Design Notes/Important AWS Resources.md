@@ -20,5 +20,3 @@ This is a reverse proxy, it sits between external clients i.e. web apps, mobile 
 
 It also performs validations of JWT Tokens or OAuth tokens. 
 
-
-

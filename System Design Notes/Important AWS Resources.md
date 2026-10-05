@@ -19,3 +19,6 @@ This is a fully managed customer identity and access management service. It lets
 This is a reverse proxy, it sits between external clients i.e. web apps, mobile apps and your backend services or microservices. So instead of a client directly connecting to dozens of backend services. it hits a API gateway. This then maps incoming URL Paths (`/users, /payments, /orders`) to the correct service to handle the request. E.g. ECS Container, EC2 instance or AWS lambda. 
 
 It also performs validations of JWT Tokens or OAuth tokens. 
+
+
+

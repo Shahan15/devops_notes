@@ -20,3 +20,16 @@ This is a reverse proxy, it sits between external clients i.e. web apps, mobile 
 
 It also performs validations of JWT Tokens or OAuth tokens. 
 
+
+#### Eventbridge & SNS
+
+##### Eventbridge
+
+So AWS Eventbridge receives a notification or event inspects the payload and then forwards the request to the appropriate worker. --> Connects to 25+ AWS Services and external SaaS partner
+
+##### SNS
+This doesn't care about the payload, it just receives the event/notification and then forwards it to its 'subscribers'. Very low latency --> this connects to SQS, Lambda, HTTP webhooks. For Sharp bursts this is good 
+
+![[Screenshot 2026-10-05 at 16.30.04.png]]
+
+So we would inspect the payload at the ECS level and do whatever we need to do with that info. It also delivers to SQS for free. 

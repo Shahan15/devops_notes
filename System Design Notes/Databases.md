@@ -88,10 +88,6 @@ If your base table uses `user_id` as the primary key, but you frequently need to
 - To avoid performing a full table scan when querying by an attribute that isn't the primary key, you create a **Global Secondary Index (GSI)**. A GSI acts like a **shadow table** managed automatically by AWS.
 - **Cost Multiplier:** Every time an item is written or updated in the base table, AWS behind the scenes writes to the GSI as well. You pay for extra storage and write throughput for the GSI.
 
-
-
-
-
 ##### When to choose which database?
 To match a database to a real-world use case, you look at whether it leans heavily toward reads or writes, and whether data accuracy or sheer speed matters more.
 

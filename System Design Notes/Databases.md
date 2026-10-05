@@ -47,6 +47,51 @@ To solve this you split your database into smaller chunks and store each chunk i
 
 
 
+
+#### Key things to note for interviews: 
+
+So lets say you are given a scenario for the system design right. Now you have to pick if you should use PostgreSQL (AWS Aurora) or for example DynamoDB a NoSQL. Its easy to think oh you need security and ACID Compliance and GDPR so you HAVE To pick PostgreSQL. --> No. This is not the case. 
+
+You need to consider different factors: 
+- Complexity of the scenario. Do you just need a DB that has fast lookup, storing simple data like metadata etc?
+- Are teams working with complex joins? Like User id's with payments, with order id's etc?
+- Are access patterns consistent? Known?
+- Are access patterns unknown? Constantly evolving? 
+  
+Access patterns is very important. For example if a Product Owner or caseworker suddenly asks for a report tomorrow joining Claims with Documents filtered by Region. you can just write a SQL query in a PostgreSQL DB -->  Without an index this would be slow. But not expensive, it would be the same base price you pay for the DB
+
+**KEY:** Doing this in DynamoDB or NoSQL would be expensive and time consuming. You would have to scan entire tables and with dynamoDB you PAY-PER-BYTE-READ. so you are reading rows and rows trying to find status='pending' each row reading you are paying for. 
+
+Example: 
+In a relational SQL database, if you want to find all users with a specific status, you write:
+```sql
+SELECT * FROM users WHERE status = 'PENDING';
+```
+
+If there is no index on `status`, SQL still returns the answer, but it checks every row. 
+	 index it means a literal index like at the back of a book:
+	 - **WITHOUT an Index (Full Table Scan):** You have to open to Page 1 and read every single word on every page all the way to Page 1,000. It takes forever, but eventually, you find all the pages.
+	 - **WITH an Index (Database Index):** You flip straight to the back of the book, look up "Catalyst" in alphabetical order, and see: `Page 42, 108, 315`. You turn directly to those exact three pages in seconds.
+
+now lets say we have a Database with 1,000,000 users.  we run this query
+```sql
+-- Querying WITHOUT an index on 'status'
+SELECT * FROM users WHERE status = 'PENDING';
+```
+
+The database engine has no idea where `'PENDING'` users are located. It has to perform a **Full Table Scan**: it reads row 1 from the hard drive, checks if `status == 'PENDING'`, reads row 2, checks it, reads row 3... all the way to row 1,000,000.
+
+- **Time:** Seconds or minutes (high CPU and disk usage).
+
+but the key point here is that with a AWS Aurora (SQL DB) you pay your flat price. Its slow but you dont pay anything crazy. with a noSQL DB, you would have to pay a crazy amount because each row will have to be read.
+If your base table uses `user_id` as the primary key, but you frequently need to search by `email`, you create a GSI where `email` is the Partition Key.
+- To avoid performing a full table scan when querying by an attribute that isn't the primary key, you create a **Global Secondary Index (GSI)**. A GSI acts like a **shadow table** managed automatically by AWS.
+- **Cost Multiplier:** Every time an item is written or updated in the base table, AWS behind the scenes writes to the GSI as well. You pay for extra storage and write throughput for the GSI.
+
+
+
+
+
 ##### When to choose which database?
 To match a database to a real-world use case, you look at whether it leans heavily toward reads or writes, and whether data accuracy or sheer speed matters more.
 
@@ -75,3 +120,7 @@ Example 5: Chat App Message Ingestion (Write-Heavy
 -  Wide-Column NoSQL (Cassandra)
 
 why? Again this is high velocity and constant. People are texting constantly and thousands of messages will be sent between users within minutes. So we would choose NoSQL here
+
+
+
+

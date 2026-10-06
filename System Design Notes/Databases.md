@@ -53,10 +53,10 @@ To solve this you split your database into smaller chunks and store each chunk i
 So lets say you are given a scenario for the system design right. Now you have to pick if you should use PostgreSQL (AWS Aurora) or for example DynamoDB a NoSQL. Its easy to think oh you need security and ACID Compliance and GDPR so you HAVE To pick PostgreSQL. --> No. This is not the case. 
 
 You need to consider different factors: 
-- Complexity of the scenario. Do you just need a DB that has fast lookup, storing simple data like metadata etc?
-- Are teams working with complex joins? Like User id's with payments, with order id's etc?
-- Are access patterns consistent? Known?
-- Are access patterns unknown? Constantly evolving? 
+- Complexity of the scenario. Do you just need a DB that has fast lookup, storing simple data like metadata etc? --> then DynamoDB
+- Are teams working with complex joins? Like User id's with payments, with order id's etc? --> PostgreSQL
+- Are access patterns consistent? Known? --> DynamoDB
+- Are access patterns unknown? Constantly evolving?  --> PostgreSQL
   
 Access patterns is very important. For example if a Product Owner or caseworker suddenly asks for a report tomorrow joining Claims with Documents filtered by Region. you can just write a SQL query in a PostgreSQL DB -->  Without an index this would be slow. But not expensive, it would be the same base price you pay for the DB
 

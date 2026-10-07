@@ -1,4 +1,4 @@
-For system design you need to know the difference, pros and cons between SQL and NoSQL databases: 
+	For system design you need to know the difference, pros and cons between SQL and NoSQL databases: 
 
 #### Relational (SQL - e.g., PostgreSQL, MySQL):
 

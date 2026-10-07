@@ -14,6 +14,9 @@ Lets say Service A i.e. Frontend wants to talk to the Backend payment service. B
 This is a separate queue alongside SQS where failed messages goes to after a set number of failed attempts. Without a DLQ, the worker fails, the message returns to the queue, and the worker picks it up again - creating an infinite retry loop that blocks all valid messages behind it.
 
 
+
+
+
 #### Cognito 
 
 This is a fully managed customer identity and access management service. It lets you add user sign up's, sign in's, access control and user management for web and mobile apps.

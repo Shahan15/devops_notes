@@ -41,3 +41,9 @@ ECS - Elastic Container Service - Allows management of Containers and lets you s
 
 Lambda - Like Azure Functions. You can run code without worrying about infrastructure. usually for small pieces of codes or automation. AWS runs the code, scales and provides OS patches and such
 
+
+To ensure high availability of EC2 instances you have a few options: 
+- Auto scaling groups (ASG) Across multi-AZ - This is basically a group of EC2 instances in a Availability Zone. 
+- Place an ALB infront that does regular health checks- If the health check fails, the ASG will terminate the EC2 and launch a fresh one in an active AZ
+- 
+

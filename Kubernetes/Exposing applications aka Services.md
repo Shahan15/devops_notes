@@ -17,7 +17,15 @@ Different types of Services:
 
 ##### Cluster IP 
 
-Service is only reachable within the cluster
+When you create a service with Cluster IP Kubernetes gives it a unique internal IP address called the Cluster IP 
+- This is only reachable within the cluster. So if you need pods to communicate with each other but not be exposed to the outside world - use Cluster IP
+
+
+##### Node Ports 
+
+Kubernetes opens a specific port on each node in your cluster and forces traffic from that port to your Service. Using the Nodes IP address. 
+
+
 
 
 

@@ -15,7 +15,7 @@ fi
 spaces between the operators matter. i.e. 
 if condition 
 
-note the space between 'if' and 'condition'
+*Note the space between 'if' and 'condition'*
 
 
 comparison operators:
